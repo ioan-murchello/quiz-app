@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes ping-once {
+  0%{
+    opacity: 1;
+    transform: scale(0);
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+}
+
+  75%, 100% {
+    opacity:1;
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+}
+}
+
+.ping-once {
+  animation: ping-once 0.7s cubic-bezier(0, 0, 0.2, 1);
+  -webkit-animation: ping-once 0.7s cubic-bezier(0, 0, 0.2, 1);
+}
