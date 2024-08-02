@@ -10,12 +10,14 @@ import htmlImg from './assets/html.svg';
 import css from './assets/css.svg';
 import js from './assets/js.svg';
 
+import sun from './assets/sun.svg';
+import moon from './assets/moon.svg';
+
 function App() {
   const [questionIndex, setQuestionIndex] = useState(0);
   const [index, setIndex] = useState(0);
   const [quizes, setQuizes] = useState(questions[index]);
-  const [ended, setEnded] = useState(false);
-  const [correctAnswers, setCorrectAnswers] = useState(0);
+  const [ended, setEnded] = useState(false); 
   const [results, setResults] = useState([]);
   const [isStarted, setIsStarted] = useState(false);
   const [theme, setTheme] = useState('light');
@@ -43,8 +45,7 @@ function App() {
 
   const newQuiz = () => {
     setIsStarted(false);
-    setIndex(0);
-    setCorrectAnswers(0);
+    setIndex(0); 
     setResults([]);
     setEnded(false);
     setQuestionIndex(0);
@@ -62,8 +63,14 @@ function App() {
   }, [questionIndex, index, theme]);
 
   return (
-    <div className='mt-5'>
-      <button onClick={toggleTheme}>theme switcher</button>
+    <div className='sm:mt-5'>
+      <button className='flex w-full justify-end' onClick={toggleTheme}>
+        {theme === 'light' ? (
+          <img className='w-6 h-6' src={moon} />
+        ) : (
+          <img className='w-6 h-6' src={sun} />
+        )}
+      </button>
       {!isStarted ? (
         <Main setIsStarted={setIsStarted} setIndex={setIndex} />
       ) : (
@@ -78,8 +85,7 @@ function App() {
           <header>
             <h2 className='text-2xl'>
               questions: {questionIndex + 1} / {quizes.length}
-            </h2>
-            {/* <p>Correct : {correctAnswers}</p> */}
+            </h2> 
             <ul className='grid grid-cols-10 sm:flex justify-center items-center gap-1 my-3'>
               {Array.from(
                 { length: quizes.length },
@@ -105,11 +111,10 @@ function App() {
           {!ended ? (
             <QuizItem
               clickCounter={handleClick}
-              question={quizes[questionIndex]}
-              setCorrectAnswers={setCorrectAnswers}
+              question={quizes[questionIndex]} 
             />
           ) : (
-            <Complete results={results} correct={correctAnswers} />
+            <Complete results={results} />
           )}
           <button
             className='bg-[--btn] transition-all hover:bg-[var(--btn-hover)] py-2 px-8 rounded-lg mt-5'

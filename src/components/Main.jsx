@@ -15,19 +15,19 @@ const Main = ({ setIndex, setIsStarted }) => {
       <div className='flex flex-col w-full sm:flex-row justify-center items-center gap-3'>
         <button
           onClick={() => handleClick(0)}
-          className='bg-orange-400 sm:hover:bg-orange-500 rounded-lg p-3 sm:p-6 text-xl sm:text-2xl w-full'
+          className='bg-orange-400 sm:hover:bg-orange-500 rounded-lg p-3 sm:p-6 text-xl sm:text-2xl w-full text-black'
         >
           HTML
         </button>
         <button
           onClick={() => handleClick(1)}
-          className='bg-blue-400 sm:hover:bg-blue-500 rounded-lg p-3 sm:p-6 text-xl sm:text-2xl w-full'
+          className='bg-blue-400 sm:hover:bg-blue-500 rounded-lg p-3 sm:p-6 text-xl sm:text-2xl w-full text-black'
         >
           CSS
         </button>
         <button
           onClick={() => handleClick(2)}
-          className='bg-yellow-300 sm:hover:bg-yellow-400 rounded-lg p-3 sm:p-6 text-xl sm:text-2xl w-full'
+          className='bg-yellow-400 sm:hover:bg-yellow-500 rounded-lg p-3 sm:p-6 text-xl sm:text-2xl w-full text-black'
         >
           JAVASCRIPT
         </button>
